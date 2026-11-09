@@ -1,5 +1,11 @@
 # Investment Portfolio Analyzer
 
+### 🚀 [Launch Live Application](https://investment-portfolio-analyzer-et9shvgr2ahbsuazd9hz74.streamlit.app)
+
+**Try the interactive platform online — no installation required.**
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Launch_Application-00C9A7?style=for-the-badge)](https://investment-portfolio-analyzer-et9shvgr2ahbsuazd9hz74.streamlit.app)
+
 ### Financial Analytics | Portfolio Simulation | Risk Assessment | Mathematical Optimization
 
 An interactive financial analytics platform developed with Python and Streamlit to help investors analyze historical market performance, simulate investment strategies, evaluate portfolio risk, and explore mathematically optimized asset allocations.
