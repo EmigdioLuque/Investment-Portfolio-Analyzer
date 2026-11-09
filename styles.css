@@ -1,0 +1,1012 @@
+/* ============================================================
+   INVESTMENT PORTFOLIO ANALYZER
+   VERSION 6.1
+   PROFESSIONAL DARK FINANCIAL INTERFACE
+   ============================================================ */
+
+
+/* ============================================================
+   01. COLOR SYSTEM
+   ============================================================ */
+
+:root {
+
+    --background: #0B111D;
+
+    --sidebar: #101827;
+
+    --surface: #121E2E;
+
+    --surface-light: #18283B;
+
+    --surface-hover: #203249;
+
+    --border: #293D54;
+
+    --text: #EDF4FA;
+
+    --secondary: #BED0E2;
+
+    --muted: #96ABC1;
+
+    --teal: #49D7C2;
+
+    --blue: #79AFFF;
+
+    --gold: #E9B96E;
+
+    --red: #F07985;
+
+    --radius: 13px;
+
+}
+
+
+/* ============================================================
+   02. GLOBAL BACKGROUND
+   ============================================================ */
+
+html,
+body,
+.stApp,
+[data-testid="stApp"],
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"] {
+
+    background: var(--background) !important;
+
+    color: var(--text) !important;
+
+}
+
+
+/* ============================================================
+   03. MAIN CONTENT
+   ============================================================ */
+
+[data-testid="stMainBlockContainer"] {
+
+    max-width: 1450px !important;
+
+    padding: 2.4rem 3rem 5rem !important;
+
+}
+
+
+/* ============================================================
+   04. TYPOGRAPHY
+   ============================================================ */
+
+html,
+body,
+button,
+input {
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+}
+
+h1,
+h2,
+h3,
+h4 {
+
+    color: var(--text) !important;
+
+    letter-spacing: -0.03em !important;
+
+}
+
+h1 {
+
+    font-size: 2.5rem !important;
+
+    font-weight: 780 !important;
+
+}
+
+h2 {
+
+    font-size: 1.65rem !important;
+
+    font-weight: 740 !important;
+
+}
+
+h3 {
+
+    font-size: 1.2rem !important;
+
+    font-weight: 700 !important;
+
+}
+
+[data-testid="stMarkdownContainer"] p {
+
+    color: var(--secondary);
+
+    line-height: 1.75;
+
+}
+
+[data-testid="stCaptionContainer"] p {
+
+    color: var(--muted) !important;
+
+}
+
+
+/* ============================================================
+   05. SIDEBAR
+   ============================================================ */
+
+[data-testid="stSidebar"],
+[data-testid="stSidebar"] > div {
+
+    background: var(--sidebar) !important;
+
+}
+
+[data-testid="stSidebar"] {
+
+    border-right:
+        1px solid var(--border) !important;
+
+}
+
+[data-testid="stSidebarUserContent"] {
+
+    padding-top: 2rem !important;
+
+}
+
+.sidebar-brand {
+
+    color: #F5FAFF !important;
+
+    font-size: 0.95rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.045em;
+
+    margin-bottom: 1rem;
+
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] label {
+
+    padding: 11px 12px !important;
+
+    border-radius: 9px !important;
+
+    border: 1px solid transparent !important;
+
+    transition: background 0.2s ease;
+
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] label:hover {
+
+    background: #1B2B3F !important;
+
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] label p {
+
+    color: #CBD9E8 !important;
+
+    font-weight: 600 !important;
+
+}
+
+[data-testid="stSidebar"]
+[role="radiogroup"]
+label:has(input:checked) {
+
+    background:
+        rgba(73,215,194,0.12) !important;
+
+    border-color:
+        rgba(73,215,194,0.35) !important;
+
+    box-shadow:
+        inset 3px 0 var(--teal);
+
+}
+
+[data-testid="stSidebar"]
+[role="radiogroup"]
+label:has(input:checked) p {
+
+    color: #6CF4DE !important;
+
+    font-weight: 760 !important;
+
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] input {
+
+    accent-color: var(--teal) !important;
+
+}
+
+
+/* ============================================================
+   06. APPLICATION LABELS
+   ============================================================ */
+
+.eyebrow {
+
+    color: var(--teal) !important;
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.16em;
+
+    margin-bottom: 1.2rem;
+
+}
+
+.section-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin: 38px 0 20px;
+
+    padding-bottom: 15px;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+.section-index {
+
+    color: var(--teal) !important;
+
+    font-size: 0.75rem;
+
+    font-weight: 850;
+
+    letter-spacing: 0.1em;
+
+}
+
+.section-title {
+
+    color: #F2F7FC !important;
+
+    font-size: 1.28rem;
+
+    font-weight: 750;
+
+    letter-spacing: -0.025em;
+
+}
+
+
+/* ============================================================
+   07. METRIC CARDS
+   ============================================================ */
+
+[data-testid="stMetric"] {
+
+    background: var(--surface) !important;
+
+    border:
+        1px solid var(--border) !important;
+
+    border-radius: var(--radius) !important;
+
+    padding: 23px !important;
+
+    min-height: 125px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+
+}
+
+[data-testid="stMetric"]:hover {
+
+    transform: translateY(-2px);
+
+    border-color: #46637D !important;
+
+}
+
+[data-testid="stMetricLabel"] p {
+
+    color: #B2C5D9 !important;
+
+    font-size: 0.76rem !important;
+
+    font-weight: 750 !important;
+
+    letter-spacing: 0.055em;
+
+    text-transform: uppercase;
+
+}
+
+[data-testid="stMetricValue"] {
+
+    color: #F5FAFF !important;
+
+    font-size: 1.85rem !important;
+
+    font-weight: 800 !important;
+
+    font-variant-numeric: tabular-nums;
+
+}
+
+
+/* ============================================================
+   08. NOTICES
+   ============================================================ */
+
+.notice {
+
+    padding: 18px 21px;
+
+    margin: 17px 0 24px;
+
+    border-radius: 11px;
+
+    font-size: 0.94rem;
+
+    font-weight: 600;
+
+    line-height: 1.75;
+
+}
+
+.notice-success {
+
+    background: #14312D !important;
+
+    color: #D6FFF5 !important;
+
+    border: 1px solid #32796D;
+
+    border-left:
+        4px solid var(--teal);
+
+}
+
+.notice-warning {
+
+    background: #342B1E !important;
+
+    color: #FFF0CF !important;
+
+    border: 1px solid #806746;
+
+    border-left:
+        4px solid var(--gold);
+
+}
+
+.notice-info {
+
+    background: #182D42 !important;
+
+    color: #E1F0FF !important;
+
+    border: 1px solid #466988;
+
+    border-left:
+        4px solid var(--blue);
+
+}
+
+
+/* ============================================================
+   09. INSIGHT CARDS
+   ============================================================ */
+
+.insight-card {
+
+    --accent-color: var(--teal);
+
+    background: #152337 !important;
+
+    border:
+        1px solid #2B4058;
+
+    border-left:
+        4px solid var(--accent-color);
+
+    border-radius: 13px;
+
+    padding: 27px 29px;
+
+    margin: 20px 0 32px;
+
+    box-shadow:
+        0 8px 28px rgba(0,0,0,0.09);
+
+}
+
+.accent-teal {
+
+    --accent-color: var(--teal);
+
+}
+
+.accent-blue {
+
+    --accent-color: var(--blue);
+
+}
+
+.accent-gold {
+
+    --accent-color: var(--gold);
+
+}
+
+.accent-red {
+
+    --accent-color: var(--red);
+
+}
+
+.insight-title {
+
+    color: var(--accent-color) !important;
+
+    font-size: 0.77rem;
+
+    font-weight: 850;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+
+    margin-bottom: 16px;
+
+}
+
+.insight-observation {
+
+    color: #F4F9FF !important;
+
+    font-size: 1.12rem;
+
+    font-weight: 740;
+
+    line-height: 1.7;
+
+    margin-bottom: 21px;
+
+}
+
+.insight-separator {
+
+    height: 1px;
+
+    background: #32465D;
+
+    margin-bottom: 20px;
+
+}
+
+.insight-label {
+
+    color: #A0B9D1 !important;
+
+    font-size: 0.7rem;
+
+    font-weight: 850;
+
+    letter-spacing: 0.13em;
+
+    margin-bottom: 10px;
+
+}
+
+.insight-explanation {
+
+    color: #D0DEEC !important;
+
+    font-size: 0.95rem;
+
+    font-weight: 450;
+
+    line-height: 1.9;
+
+    margin: 0;
+
+}
+
+.insight-consideration {
+
+    background: #1B2D43 !important;
+
+    border:
+        1px solid #354D67;
+
+    border-radius: 9px;
+
+    padding: 19px 21px;
+
+    margin-top: 24px;
+
+}
+
+.insight-consideration p {
+
+    color: #D4E2F0 !important;
+
+    font-size: 0.93rem;
+
+    line-height: 1.85;
+
+    margin: 0;
+
+}
+
+
+/* ============================================================
+   10. TABLE CONTAINERS
+   ============================================================ */
+
+.table-container {
+
+    background: var(--surface) !important;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 13px;
+
+    overflow: hidden;
+
+    margin: 20px 0 30px;
+
+    box-shadow:
+        0 8px 26px rgba(0,0,0,0.08);
+
+}
+
+.table-scroll {
+
+    overflow-x: auto;
+
+}
+
+
+/* ============================================================
+   11. FINANCIAL TABLES
+   ============================================================ */
+
+.financial-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: var(--surface);
+
+    color: #EDF5FD;
+
+    font-size: 0.91rem;
+
+    font-variant-numeric: tabular-nums;
+
+}
+
+.financial-table thead {
+
+    background: #1D3046;
+
+}
+
+.financial-table thead th {
+
+    color: #C2D4E6 !important;
+
+    padding: 20px 22px;
+
+    font-size: 0.72rem;
+
+    font-weight: 850;
+
+    letter-spacing: 0.075em;
+
+    text-transform: uppercase;
+
+    text-align: right;
+
+    border-bottom:
+        1px solid #39516B;
+
+    white-space: nowrap;
+
+}
+
+.financial-table thead th:first-child {
+
+    text-align: left;
+
+}
+
+.financial-table tbody th {
+
+    padding: 20px 22px;
+
+    text-align: left;
+
+    border-bottom:
+        1px solid rgba(150,175,205,0.13);
+
+    min-width: 245px;
+
+}
+
+.financial-table tbody td {
+
+    color: #F1F7FF !important;
+
+    padding: 20px 22px;
+
+    text-align: right;
+
+    font-weight: 650;
+
+    border-bottom:
+        1px solid rgba(150,175,205,0.13);
+
+}
+
+.financial-table tbody tr:nth-child(even) {
+
+    background: #17263A;
+
+}
+
+.financial-table tbody tr:hover {
+
+    background: #21364F;
+
+}
+
+.financial-table tbody tr:last-child td,
+.financial-table tbody tr:last-child th {
+
+    border-bottom: none;
+
+}
+
+.metric-name {
+
+    display: block;
+
+    color: #F1F7FF !important;
+
+    font-size: 0.91rem;
+
+    font-weight: 750;
+
+    margin-bottom: 7px;
+
+}
+
+.metric-description {
+
+    display: block;
+
+    color: #9BB3CB !important;
+
+    font-size: 0.77rem;
+
+    font-weight: 450;
+
+    line-height: 1.55;
+
+}
+
+.financial-value {
+
+    font-variant-numeric: tabular-nums;
+
+}
+
+.best-value {
+
+    color: #72EAD5 !important;
+
+    font-weight: 850 !important;
+
+}
+
+
+/* ============================================================
+   12. SIMPLE TABLES
+   ============================================================ */
+
+.simple-table thead th {
+
+    text-align: left;
+
+}
+
+.simple-table tbody td {
+
+    text-align: left;
+
+}
+
+.simple-table tbody td:first-child {
+
+    color: #F4FAFF !important;
+
+    font-weight: 720;
+
+}
+
+
+/* ============================================================
+   13. CHARTS
+   ============================================================ */
+
+[data-testid="stPlotlyChart"] {
+
+    background: var(--surface) !important;
+
+    border:
+        1px solid var(--border) !important;
+
+    border-radius: 14px !important;
+
+    padding: 12px !important;
+
+    margin: 18px 0 28px !important;
+
+    overflow: hidden;
+
+}
+
+
+/* ============================================================
+   14. INPUTS
+   ============================================================ */
+
+[data-testid="stNumberInput"] input {
+
+    background: #17263A !important;
+
+    color: #F4FAFF !important;
+
+    border:
+        1px solid #3A526B !important;
+
+    border-radius: 8px !important;
+
+}
+
+[data-testid="stNumberInput"] button {
+
+    background: #1C3046 !important;
+
+    color: #F4FAFF !important;
+
+    border-color: #3A526B !important;
+
+}
+
+[data-testid="stSelectbox"]
+[data-baseweb="select"] > div {
+
+    background: #17263A !important;
+
+    color: #F4FAFF !important;
+
+    border:
+        1px solid #3A526B !important;
+
+    border-radius: 8px !important;
+
+}
+
+[data-testid="stSlider"] label p,
+[data-testid="stNumberInput"] label p,
+[data-testid="stSelectbox"] label p {
+
+    color: #E0ECF7 !important;
+
+}
+
+[data-testid="stSlider"] [role="slider"] {
+
+    background: var(--teal) !important;
+
+    border-color: var(--teal) !important;
+
+}
+
+
+/* ============================================================
+   15. BUTTONS
+   ============================================================ */
+
+[data-testid="stButton"] button {
+
+    background: #1B3045 !important;
+
+    color: #E8F6F3 !important;
+
+    border:
+        1px solid #416D75 !important;
+
+    border-radius: 9px !important;
+
+    font-weight: 700 !important;
+
+    padding: 0.65rem 1.2rem !important;
+
+    transition: all 0.2s ease;
+
+}
+
+[data-testid="stButton"] button:hover {
+
+    background: #23465A !important;
+
+    border-color: var(--teal) !important;
+
+    color: #FFFFFF !important;
+
+}
+
+
+/* ============================================================
+   16. STREAMLIT ALERTS
+   ============================================================ */
+
+[data-testid="stAlert"] {
+
+    background: #182D42 !important;
+
+    border:
+        1px solid #41627F !important;
+
+    border-radius: 11px !important;
+
+}
+
+[data-testid="stAlert"] *,
+[data-testid="stAlert"] p,
+[data-testid="stAlert"] span {
+
+    color: #F0F7FF !important;
+
+}
+
+
+/* ============================================================
+   17. DIVIDERS
+   ============================================================ */
+
+hr {
+
+    border: 0 !important;
+
+    border-top:
+        1px solid rgba(155,180,210,0.16) !important;
+
+    margin: 1.9rem 0 !important;
+
+}
+
+
+/* ============================================================
+   18. HEADER
+   ============================================================ */
+
+[data-testid="stHeader"] {
+
+    background:
+        rgba(11,17,29,0.95) !important;
+
+}
+
+
+/* ============================================================
+   19. FOCUS AND SELECTION
+   ============================================================ */
+
+:focus-visible {
+
+    outline:
+        2px solid var(--teal) !important;
+
+    outline-offset: 3px;
+
+}
+
+::selection {
+
+    background: rgba(73,215,194,0.28);
+
+    color: #FFFFFF;
+
+}
+
+
+/* ============================================================
+   20. RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    [data-testid="stMainBlockContainer"] {
+
+        padding:
+            1.5rem 1.2rem 3rem !important;
+
+    }
+
+    h1 {
+
+        font-size: 1.95rem !important;
+
+    }
+
+    .insight-card {
+
+        padding: 20px;
+
+    }
+
+    .insight-observation {
+
+        font-size: 1rem;
+
+    }
+
+    .financial-table thead th,
+    .financial-table tbody th,
+    .financial-table tbody td {
+
+        padding: 15px;
+
+    }
+
+    .section-title {
+
+        font-size: 1.08rem;
+
+    }
+
+}
+
+
+/* ============================================================
+   END OF STYLESHEET
+   ============================================================ */
